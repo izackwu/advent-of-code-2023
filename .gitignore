@@ -8,3 +8,6 @@ target/
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+# don't include input files, see https://www.reddit.com/r/adventofcode/comments/e7khy8/are_everyones_input_data_and_by_extension/
+input.txt

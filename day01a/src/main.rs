@@ -1,7 +1,7 @@
 use std::io::BufRead;
 
 // Given a line, find the first digit and the last digit (can be the same one), and combine them to form a two-digit number.
-fn calibration_value (line : &str) -> u32 {
+fn calibration_value(line: &str) -> u32 {
     let first_digit = line.chars().find(char::is_ascii_digit).unwrap();
     let last_digit = line.chars().rfind(char::is_ascii_digit).unwrap();
     let first_digit = first_digit.to_digit(10).unwrap();
@@ -17,7 +17,7 @@ fn test_calibration_value() {
     assert_eq!(calibration_value("treb7uchet"), 77);
 }
 
-fn process_lines_in_file (filename : &str) -> u32 {
+fn process_lines_in_file(filename: &str) -> u32 {
     let file = std::fs::File::open(filename).unwrap();
     let reader = std::io::BufReader::new(file);
     let mut sum = 0;
@@ -26,11 +26,6 @@ fn process_lines_in_file (filename : &str) -> u32 {
         sum += calibration_value(&line);
     }
     sum
-}
-
-#[test]
-fn test_process_lines_in_file() {
-    assert_eq!(process_lines_in_file("./src/input.txt"), 53651);
 }
 
 fn main() {

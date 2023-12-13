@@ -2,7 +2,7 @@ use std::io::BufRead;
 
 // This function is not very efficient, but the input data is simple enough that it works reasonably fast.
 fn find_first_digit(line: &str, substrs_to_find: &[&str]) -> u32 {
-    let mut digit  = 0;
+    let mut digit = 0;
     let mut min_pos = line.len();
     for (i, substr) in substrs_to_find.iter().enumerate() {
         match line.find(substr) {
@@ -24,8 +24,8 @@ fn calibration_value(line: &str) -> u32 {
     // substrs_to_find[i] = i % 10 (note that we don't expect zero or 0)
     let substrs_to_find = [
         "###", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "###", "1",
-        "2", "3", "4", "5", "6", "7", "8", "9",
-        "###", "eno", "owt", "eerht", "ruof", "evif", "xis", "neves", "thgie", "enin"
+        "2", "3", "4", "5", "6", "7", "8", "9", "###", "eno", "owt", "eerht", "ruof", "evif",
+        "xis", "neves", "thgie", "enin",
     ];
 
     let first_digit = find_first_digit(&line, &substrs_to_find[0..20]);
@@ -57,11 +57,6 @@ fn process_lines_in_file(filename: &str) -> u32 {
         sum += calibration_value(&line);
     }
     sum
-}
-
-#[test]
-fn test_process_lines_in_file() {
-    assert_eq!(process_lines_in_file("./src/input.txt"), 53894);
 }
 
 fn main() {

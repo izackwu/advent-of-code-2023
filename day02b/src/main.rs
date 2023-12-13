@@ -58,11 +58,6 @@ fn process_lines_in_file(filename: &str) -> u32 {
     sum
 }
 
-#[test]
-fn test_process_lines_in_file() {
-    assert_eq!(process_lines_in_file("./src/input.txt"), 71220);
-}
-
 fn main() {
     let args: Vec<String> = std::env::args().collect();
     let filename = &args[1];
